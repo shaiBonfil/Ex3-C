@@ -29,7 +29,7 @@ int get_word(char w[]){
     int count = 0;
     char c = getchar();
     w[0] = c;
-    while(c != '\n' && c != '\t' && c != ' ' && c != EOF){
+    while(c != '\n' && c != '\t' && c != ' ' && c != '\r' && c != EOF){
         count++;
         c = getchar();
         w[count] = c;
@@ -67,7 +67,6 @@ int subString(char *str1, char *str2){
 //by less the number n of characters.
 int similar(char *s, char *t, int n){
     int i = 0, j = 0;
-    //char *len = s+strlen(s)-1;
     while(s[i] != '\0' || t[j] != '\0'){
         if(s[i] == t[j]){
             j++;
@@ -76,9 +75,6 @@ int similar(char *s, char *t, int n){
         else{
             i++;
             n--;
-        }
-        if(t[j] == '\0' && n == 1){
-            return 1;
         }
     }
     if(n == 0){
